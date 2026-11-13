@@ -59,3 +59,9 @@ Sign in as that user and open **History** to see a completed Wordle from the pre
 - `App/wordle.py` and `App/spellingBee.py` implement the puzzle rules.
 - `App/templates/` and `App/static/` contain the UI.
 - `db/setup.sql` initializes the PostgreSQL tables and weekly game schedule.
+
+## Authors
+
+- Isabela Resende Vasconcelos
+- Xena Tat
+- Jiha Poitevin

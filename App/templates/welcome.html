@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Word Games | Welcome{% endblock %}
+{% block header %}Welcome{% endblock %}
+{% block content %}
+<h2>Pick one of the options below to start playing word games!</h2>
+<ul class="welcome">
+    <li>
+        <a href='{{ url_for("home") }}'>
+            <p>Play as Guest</p>
+            <p class="welcome-emoji">👤</p>
+        </a>
+    </li>
+    <li>
+        <a href='{{ url_for("login") }}'>
+            <p>Login</p>
+            <p class="welcome-emoji">🔐</p>
+        </a>
+    </li>
+    <li>
+        <a href='{{ url_for("register") }}'>
+            <p>Register</p>
+            <p class="welcome-emoji">🪪</p>
+        </a>
+    </li>
+</ul>
+{% endblock %}

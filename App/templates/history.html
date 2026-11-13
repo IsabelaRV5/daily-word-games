@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block header %}History{% endblock %}
+{% block content %}
+    <!----  Content  ---->
+    <div id="history_Container">
+    {% if sessions %}
+        {% for session in sessions %}
+        <div class="sessions">
+            {% if session.type == 'wordle' %}
+                <h3>Wordle - Day {{ session.day }}</h3>
+            {% elif session.type == 'spelling_bee' %}
+                <h3>Spelling Bee - Day {{ session.day }}</h3>
+            {% endif %}
+            <hr>
+            <ul id="session-state">
+                <li>Status: {{ session.state.status }}</li>
+                {% if session.type == 'wordle' %}
+                    <li>Won: {{ session.state.won }}</li>
+                    <li>Is Over: {{ session.state.is_over }}</li>
+                    <li>Attempts Left: {{ session.state.attempts_left }}</li>
+                {% elif session.type == 'spelling_bee' %}
+                    <li>Tier: {{ session.state.tier }}</li>
+                    <li>Score: {{ session.state.score }}</li>
+                {% endif %}
+            </ul>
+        </div>
+        {% endfor %}
+    {% else %}
+        {% if current_user.is_authenticated %}
+        <h2>No game history yet!</h2>
+        {% else %}
+        <h2>No game history available for guest users!</h2>
+        {% endif %}
+    {% endif %}
+    </div>
+{% endblock %}

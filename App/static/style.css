@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Neucha&family=Quicksand:wght@300..700&display=swap');
+
+/* GENERAL STYLING ------------------------------------------------------------------------*/
+
+body{
+    font-family: "Jua", sans-serif;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: rgb(61, 58, 80);
+}
+
+nav{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color:rgb(42, 40, 56);
+    margin-bottom: 1.5em;
+    padding:5px;
+}
+
+.navigation{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 30px;
+}
+
+.navigation > li{
+    list-style-type: none;
+    margin-left: 25px;
+}
+
+#navigation > li > a{
+    text-decoration: none;
+}
+
+a{
+    color:rgb(194, 156, 230);
+    text-decoration: none;
+}
+
+a:hover{
+    color:rgb(157, 100, 211);
+}
+
+
+.leftNav {
+    justify-self: start;
+    list-style-type: none;
+    margin-left: 15px;
+}
+
+.centerNav {
+    justify-self: center;
+    text-align: center;
+}
+
+#streaks-div {
+    justify-self: end;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.streaks {
+    color:rgb(194, 156, 230);
+    margin: 0;
+    white-space: nowrap;
+    margin-left: 10px;
+    font-size: 18px;
+    margin-right: 25px;
+}
+
+#homeIcon{
+    font-size: 30px;
+}
+
+#accountIcon{
+    font-size: 30px;
+}
+
+#adminIcon{
+    font-size: 30px;
+}
+
+#container{
+    margin: auto auto;
+    padding:20px;
+    width: 530px;
+}
+
+h1{
+    font-size:30px;
+    color: white;
+    white-space: nowrap;
+    width:fit-content;
+    margin: auto auto;
+}
+
+.error {
+    color: rgb(240, 75, 75);
+    font-size: 1.5em;
+    padding: 1em;
+}
+
+#account {
+    display: flex;
+    flex-direction: column;
+    margin-top: 14px;
+}
+
+label {
+    font-size: 1.5em;
+    margin-right: 1.3em;
+    color: white;
+}
+
+.registerInputs, .loginInputs {
+    padding: 1em;
+    font-size: 1.3em;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 15px;
+    margin-bottom: 1.3em;
+    font-family: "Jua", sans-serif;
+}
+
+button, .welcome a, .gameCard a, .management a {
+    padding: 1em;
+    border: 2px solid rgb(237, 214, 240);
+    border-radius: 15px;
+    background-color: rgb(237, 214, 240);
+    border: none;
+    color: rgb(80, 38, 134);
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.3em;
+    max-width: 8em;
+    max-height: auto;
+    font-family: "Jua", sans-serif;
+    transition: transform 0.1s;
+}
+
+button:hover, .welcome a:hover, .gameCard a:hover, .management a:hover {
+    background-color: rgb(96, 66, 135);
+    color: rgb(238, 234, 245);
+    border: 2px solid rgb(96, 66, 135);
+    font-family: "Jua", sans-serif;
+    transform: scale(1.1);
+    background-color: rgb(140, 117, 187);
+}
+
+.welcome {
+    list-style-type: none;
+    display: flex;
+    gap: 7em;
+    flex-direction: row;
+    justify-content: center;
+    padding: 3em;
+}
+
+.welcome a {
+    font-size: 30px;
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+}
+
+.welcome li {
+    margin: 0;
+    gap: 0;
+}
+
+.welcome p {
+    margin: 0;
+}
+
+.welcome-emoji {
+    font-size: 55px;
+    margin: 0;
+}
+
+h2 {
+    color: white;
+    font-size: 34px;
+    margin-top: 1.7em;
+    margin-bottom: 0;
+}
+
+#gamesGrid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.gameCard {
+    width: 320px;
+    min-height: 260px;
+    background-color: rgb(135, 145, 192);
+    border: 2px solid aliceblue;
+    border-radius: 30px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gameCard h3 {
+    color: aliceblue;
+    font-size: 28px;
+    margin-bottom: 10px;
+    margin-top: 0.6em;
+}
+
+.gameCard p {
+    color: aliceblue;
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+.gameCard a {
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+/* Admin Page, Mod Page and History Page s*/
+#users_Container, #games_Container, #history_Container {
+    text-align: center;
+    margin:auto auto;
+    width: fit-content;
+    margin-top:20px;
+}
+
+.enable-disable #enable, #promote-userControl .admin-mod {
+    color: rgb(45, 211, 67);
+    text-decoration: none;
+    margin: 12px;
+    font-size: 19px;
+    background-color: rgba(0,0,0,0);
+    padding: 10px;
+}
+
+#enable:hover, #promote-userControl .admin-mod:hover {
+    color: rgb(124, 227, 138);
+    background-color: rgba(124, 227, 138, 0.2);
+    border-color: rgb(124, 227, 138);
+}
+
+#block-delete-userControl .admin-mod, .enable-disable #disable, #session-state > li {
+    color: rgb(168, 52, 52);
+    text-decoration: none;
+    margin: 12px;
+    font-size: 19px;
+    background-color: rgba(0,0,0,0);
+    padding: 10px;
+}
+
+#session-state {
+    list-style-type: none;
+}
+
+#block-delete-userControl .admin-mod:hover, #disable:hover{
+    color: rgb(218, 64, 64);
+    background-color: rgba(231, 84, 84, 0.2);
+    border-color: rgb(231, 84, 84);
+}
+
+.users > p, .game-management > p{
+    font-size: 20px;
+    margin:12px;
+}
+
+.users> div, .game-management > div, .sessions > div {
+    margin-bottom: 8px;
+}
+
+
+.users, .game-management, .sessions {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(135, 145, 192);
+    margin-top: 25px;
+    padding:10px;
+    width:690px;
+    height:auto;
+    border-radius: 30px;
+    border: 2px solid white;
+}
+
+.users h3, .game-management h3 {
+    font-size: 1.5em;
+    margin-top: 0.6em;
+}
+
+.game-management h3 {
+    margin-bottom: 0.4em;
+}
+
+.management {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    gap: 5em;
+    justify-content: center;
+    padding: 3em;
+}
+
+.management a {
+    display: inline-block;
+}
+
+hr{
+    width:575px;
+    margin-top:15px;
+    margin-bottom: 20px;
+}
+
+#register, #login {
+    margin-top: 3em;
+    font-size: 22px;
+}
+
+#home-login {
+    margin-top: 1.2em;
+    font-size: 22px;
+}
+
+.enable-disable, #block-delete-userControl, #promote-userControl {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.enable-disable {
+    background-color: rgba(0,0,0,0);
+}

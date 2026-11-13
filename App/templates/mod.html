@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block header %}Mod View{% endblock %}
+{% block content %}
+    <!----  Content  ---->
+    <h2>Game Management</h2>
+    <div id="games_Container">
+        <div class="game-management">
+            <h3>Wordle</h3>
+            <hr>
+            <div class="enable-disable">
+                <form action="{{ url_for('enable_wordle') }}" method="POST">
+                    <button id="enable" class="admin-mod" type="submit">Enable Wordle</button>
+                </form>
+                <form action="{{ url_for('disable_wordle') }}" method="POST">
+                    <button id="disable" class="admin-mod" type="submit">Disable Wordle</button>
+                </form>
+            </div>
+        </div>
+        <div class="game-management">
+            <h3>Spelling Bee</h3>
+            <hr>
+            <div class="enable-disable">
+                <form action="{{ url_for('enable_spelling_bee') }}" method="POST">
+                    <button id="enable" class="admin-mod" type="submit">Enable Spelling Bee</button>
+                </form>
+                <form action="{{ url_for('disable_spelling_bee') }}" method="POST">
+                    <button id="disable" class="admin-mod" type="submit">Disable Spelling Bee</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,276 @@
+/* SPELLING BEE STYLING ------------------------------------------------------------------*/
+
+#gameBox_SpellingBee{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+section{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:0 35px;
+}
+
+#userInput_SpellingBee{
+    color: white;
+    font-family: "Jua", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 35px;
+    margin: 10px;
+    padding: 20px;
+    width: 400px;
+    height: 40px;
+    font-weight: 400;
+    font-style: normal;
+    background-color: rgb(61, 58, 80);
+    border: none;
+}
+
+#userInput_SpellingBee::placeholder{
+    color: white;
+}
+
+#userInput_SpellingBee:focus::placeholder{
+    color: transparent;
+}
+
+#userInput_SpellingBee:focus{
+    outline: none;
+}
+
+#guesses{
+    margin-top: 20px;
+    min-width: 400px;
+    width: auto;
+    height: auto;
+    min-height: 550px;
+    border-radius: 20px;
+    background-color: rgb(175, 180, 245);
+}
+
+#guesses ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    list-style: none;
+    gap: 20px;
+    padding: 8px;
+    margin-left: 1.1em;
+    margin-bottom: 0.25em;
+    margin-right: 1.1em;
+}
+
+#foundWordsTitle{
+    font-size: 30px;
+}
+
+.guessed_word_SpellingBee{
+    text-align: left;
+    font-size: 22px;
+}
+
+#hive{
+    display:grid;
+    grid-template-columns: repeat(3, 75px);
+    justify-content: center;
+    width: 330px;
+    margin-bottom: 20px;
+    place-items: center;
+}
+
+.hive_letter{
+    color:white;
+    font-size: 30px;
+    font-weight: 400;
+    font-style: normal;
+    cursor: default;
+    user-select: none;
+}
+
+.control_button{
+    font-family: "Jua", sans-serif;
+    max-height: 67px;
+    font-size: 23px;
+    padding:20px;
+    border: none;
+    border-radius: 40px;
+    background-color: rgb(216, 218, 251);
+    transition: transform 0.1s;
+    user-select: none;
+    margin-bottom: 1.1em;
+}
+
+.control_button:hover{
+    transform: scale(1.1);
+    background-color: rgb(116, 103, 142);
+}
+
+.control_button:active{
+    transform: scale(1);
+    background-color: rgb(77, 66, 98);
+}
+
+/* Source of Hexagon CSS: https://css-shape.com/hexagon/ */
+.hexagon_outer {
+    display: flex;
+    height: 80px; /* adjust to control the size  */
+    aspect-ratio: 1/cos(30deg);
+    clip-path: polygon(50% -50%,100% 50%,50% 150%,0 50%);
+    background-color: rgb(21, 15, 33);
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom:10px;
+    transition: transform 0.1s;
+}
+
+.hexagon_center {
+    display:flex;
+    height: 80px; /* adjust to control the size  */
+    aspect-ratio: 1/cos(30deg);
+    clip-path: polygon(50% -50%,100% 50%,50% 150%,0 50%);
+    background-color: rgb(226, 209, 83);
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom:10px;
+    transition: transform 0.1s;
+}
+
+.hexagon_center p {
+    color:rgb(40, 32, 58);
+}
+
+.hexagon_outer:hover,
+.hexagon_center:hover{
+    transform: scale(1.1);
+}
+
+.hexagon_outer:active,
+.hexagon_center:active{
+    transform: scale(0.9);
+}
+
+#displayScore {
+    display: flex;
+}
+
+#displayScore > h3 {
+    color: rgb(175, 180, 245);
+    margin-bottom: 0;
+}
+
+#scoreText {
+    margin-right: 15px;
+}
+
+#displayTier {
+    display: flex;
+}
+
+#displayTier > h3 {
+    color: rgb(175, 180, 245);
+    margin-bottom: 0;
+}
+
+#tierText {
+    margin-right: 15px;
+}
+
+/* inspired by https://www.w3schools.com/howto/howto_js_popup.asp
+   and https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Animations/Using */
+#queenBeePopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px);
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none; /* makes this overlayed popup unclickable (but items under it are still clickable) */
+    transition: opacity 0.3s ease;
+}
+
+#queenBeePopup.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.popup_content {
+    background-color: rgb(226, 209, 83);
+    padding: 30px 50px;
+    border-radius: 20px;
+    font-family: "Jua", sans-serif;
+    transform: scale(0.7);
+    animation: popIn 0.7s ease forwards;
+}
+
+.popup_content p {
+    color:rgb(40, 32, 58);
+    font-size: 35px;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.pangramWord {
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(226, 193, 24, 0.8);
+}
+
+#pangramPopup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-120px);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        transform 0.7s ease,
+        opacity 0.7s ease;
+}
+
+#pangramPopup.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.pangram_content {
+    background-color: rgb(226, 209, 83);
+    padding: 18px 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    text-align: center;
+}
+
+.pangram_content p {
+    font-size: 20px;
+    margin: 0;
+    color: rgb(40, 32, 58);
+}
+
+.pangram_content span {
+    font-size: 13px;
+    color: rgb(40, 32, 58);
+}

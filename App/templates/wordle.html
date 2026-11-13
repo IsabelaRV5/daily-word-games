@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Word Games | Wordle{% endblock %}
+{% block script %}<script src='../static/wordle.js'></script>{% endblock %}
+{% block gameStyle %}<link rel="stylesheet" type="text/css" href='{{ url_for("static", filename = "wordle.css") }}'/>{% endblock %}
+{% block streaks %}<p id="streak" class="streaks">Wordle streak: {{ wordle_streak }}</p>{% endblock %}
+{% block header %}Wordle{% endblock %}
+{% block content %}
+<div id="container">
+    <div id="gameBox_Wordle">
+        <div id="guessGrid">
+            
+        <!-------------------- INPUT ROWS ARE DONE DYNAMICALLY IN JS ----------------------->
+                
+        </div>
+        <!--------------------- KEYBOARD ---------------------->
+        <div id="keyboard">
+            <!------------------ FIRST ROW ---------------------->
+            <div class="keyboardRow">
+                <button id="Q" class="key">Q</button>
+                <button id="W" class="key">W</button>
+                <button id="E" class="key">E</button>
+                <button id="R" class="key">R</button>
+                <button id="T" class="key">T</button>
+                <button id="Y" class="key">Y</button>
+                <button id="U" class="key">U</button>
+                <button id="I" class="key">I</button>
+                <button id="O" class="key">O</button>
+                <button id="P" class="key">P</button>
+            </div>
+
+            <!------------------ SECOND ROW ---------------------->
+            <div class="keyboardRow">
+                <button id="A" class="key">A</button>
+                <button id="S" class="key">S</button>
+                <button id="D" class="key">D</button>
+                <button id="F" class="key">F</button>
+                <button id="G" class="key">G</button>
+                <button id="H" class="key">H</button>
+                <button id="J" class="key">J</button>
+                <button id="K" class="key">K</button>
+                <button id="L" class="key">L</button>
+            </div>
+
+            <!------------------ THIRD ROW ---------------------->
+            <div class="keyboardRow">
+                <button id="Enter" class="key">ENTER</button>
+                <button id="Z" class="key">Z</button>
+                <button id="X" class="key">X</button>
+                <button id="C" class="key">C</button>
+                <button id="V" class="key">V</button>
+                <button id="B" class="key">B</button>
+                <button id="N" class="key">N</button>
+                <button id="M" class="key">M</button>
+                <button id="Backspace" class="key">
+                    <span class="material-symbols-outlined">
+                        backspace
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <h2 id="message"></h2>
+</div>
+{% endblock %}
+

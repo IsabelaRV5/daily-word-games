@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block header %}Admin View{% endblock %}
+{% block content %}
+        <!----  Content  ---->
+        <h2>Game Management</h2>
+        <div id="games_Container">
+            <div class="game-management">
+                <h3>Wordle</h3>
+                <hr>
+                <div class="enable-disable">
+                    <form action="{{ url_for('enable_wordle') }}" method="POST">
+                        <button id="enable" class="admin-mod" type="submit">Enable Wordle</button>
+                    </form>
+                    <form action="{{ url_for('disable_wordle') }}" method="POST">
+                        <button id="disable" class="admin-mod" type="submit">Disable Wordle</button>
+                    </form>
+                </div>
+            </div>
+            <div class="game-management">
+                <h3>Spelling Bee</h3>
+                <hr>
+                <div class="enable-disable">
+                    <form action="{{ url_for('enable_spelling_bee') }}" method="POST">
+                        <button id="enable" class="admin-mod" type="submit">Enable Spelling Bee</button>
+                    </form>
+                    <form action="{{ url_for('disable_spelling_bee') }}" method="POST">
+                        <button id="disable" class="admin-mod" type="submit">Disable Spelling Bee</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <h2>User Management</h2>
+        <div id="users_Container">
+            {% for user in users %}
+            <div class="users">
+                <h3>{{ user.username }}</h3>
+                <p>Role: {{ user.role }}</p>
+                {% if user.permission == 'spelling_bee' or user.permission == 'wordle' %}
+                <p>Permission: blocked for {{ user.permission }}</p>
+                {% else %}
+                <p>Permission: {{ user.permission }}</p>
+                {% endif %}
+                <hr>
+                <div id="block-delete-userControl">
+                    <form action="{{ url_for('block_user', user_id=user.id) }}" method="POST">
+                        <button class="admin-mod" type="submit">Block All</button>
+                    </form>
+                    <form action="{{ url_for('block_wordle', user_id=user.id) }}" method="POST">
+                        <button class="admin-mod" type="submit">Block Wordle Only</button>
+                    </form>
+                    <form action="{{ url_for('block_spelling', user_id=user.id) }}" method="POST">
+                        <button class="admin-mod" type="submit">Block Spelling Bee Only</button>
+                    </form>
+                    <form action="{{ url_for('unblock_user', user_id=user.id) }}" method="POST">
+                        <button class="admin-mod" type="submit">Unblock</button>
+                    </form>
+                    <form action="{{ url_for('delete_user', user_id=user.id) }}" method="POST">
+                        <button class="admin-mod" type="submit">Delete</button>
+                    </form>
+                </div>
+                <div id="promote-userControl">
+                    <form action="{{ url_for('make_admin', user_id=user.id) }}" method="POST">
+                        <button class="admin-mod" type="submit">Change Role to Admin</button>
+                    </form>
+                    <form action="{{ url_for('make_mod', user_id=user.id) }}" method="POST">
+                        <button class="admin-mod" type="submit">Change Role to Mod</button>
+                    </form>
+                    <form action="{{ url_for('make_basic', user_id=user.id) }}" method="POST">
+                        <button class="admin-mod" type="submit">Change Role to Basic</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+{% endblock %}

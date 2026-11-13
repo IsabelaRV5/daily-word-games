@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% block script %}{% endblock %}
+    {% block gameStyle %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href='{{ url_for("static", filename = "style.css") }}'/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+</head>
+    <body>
+        <nav>
+            <div class="leftNav">
+                <ul class="navigation">
+                    <li>
+                        <a href='{{ url_for("home") }}'>
+                            <span id="homeIcon" class="material-symbols-outlined">
+                                home
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="account" href='{{ url_for("history") }}'>
+                            <span id="accountIcon" class="material-symbols-outlined">
+                                account_circle
+                            </span>
+                            {% if current_user.is_authenticated %}
+                                {{ current_user.username }}
+                            {% else %}
+                                guest
+                            {% endif %}
+                        </a>
+                    </li>
+                    <li>
+                        {% if current_user.role == 'admin' %}
+                        <a href="{{ url_for('admin_view') }}">
+                            <span id="adminIcon" class="material-symbols-outlined">admin_panel_settings</span>
+                        </a>
+                        {% elif  current_user.role == 'mod' %}
+                        <a href="{{ url_for('mod_view') }}">
+                            <span id="adminIcon" class="material-symbols-outlined">admin_panel_settings</span>
+                        </a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="centerNav">   
+                <h1>{% block header %}{% endblock %}</h1>
+            </div>
+             
+            <div id="streaks-div">{% block streaks %}{% endblock %}</div>
+        </nav>
+        {% for message in get_flashed_messages() %}
+            <div class='error'>
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

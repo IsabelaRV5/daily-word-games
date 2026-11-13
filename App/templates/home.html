@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Word Games | Home{% endblock %}
+{% block streaks %}{% if current_user.is_authenticated %}<p class="streaks">Wordle streak: {{ wordle_streak }}</p><p class="streaks">Spelling Bee streak: {{ spelling_bee_streak }}</p>{% endif %}{% endblock %}
+{% block header %}Home{% endblock %}
+{% block content %}
+<p>
+    {% if current_user.is_authenticated %}
+    <a id="home-login" href='{{ url_for("logout") }}'>
+        Log out
+    </a>
+    {% else %}
+    <a id="home-login" href='{{ url_for("root") }}'>
+        Go back to Welcome page
+    </a>
+    {% endif %}
+</p>
+<div id="gamesContainer">
+    <div class="games">
+        <h2>Available Games</h2>
+    </div>
+    <div id="gamesGrid">
+        {% for g in games %}
+        <div class="gameCard">
+            <h3>{{ g.display_name }}</h3>
+            <a href="{{ url_for(g.type, day=g.day) }}">Play!</a>
+            <p>{{ g.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% if current_user.is_authenticated %}
+    <h2>Management</h2>
+    <ul class="management">
+        <li><a href='{{ url_for("history") }}'>See History</a></li>
+    {% if current_user.role == 'admin' %}
+        <li><a href='{{ url_for("admin_view") }}'>Admin View</a></li>
+    {% elif  current_user.role == 'mod' %}
+        <li><a href='{{ url_for("mod_view") }}'>Mod View</a></li>
+    {% endif %}
+    </ul>
+    {% endif %}
+</div>
+{% endblock %}

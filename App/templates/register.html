@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Word Games | Register{% endblock %}
+{% block header %}Register new account{% endblock %}
+{% block content %}
+<div>
+    <form method="post">
+        <div id="username">
+            <label>New Username</label>
+            <input class="registerInputs" type="text" placeholder="New username" required name="username"/>
+        </div>
+
+        <div id="password">
+            <label>Password</label>
+            <input class="registerInputs" type="password" placeholder="New password" required name="password"/>
+        </div>
+
+        <div id="confirmPassword">
+            <label>Confirm Password</label>
+            <input class="registerInputs" type="password" placeholder="Confirm password" required name="confirmPassword"/>
+        </div>
+
+        <button>Sign Up</button>
+    </form>
+    
+    <p id="login">
+        <a href='{{ url_for("login") }}'>
+            Already have an account? Login here!
+        </a>
+    </p>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block title %}Word Games | Spelling Bee{% endblock %}
+{% block script %}<script src="../static/spellingBee.js"></script>{% endblock %}
+{% block gameStyle %}<link rel="stylesheet" type="text/css" href='{{ url_for("static", filename = "spellingBee.css") }}'/>{% endblock %}
+{% block streaks %}<p id="streak" class="streaks">Spelling Bee streak: {{ spelling_bee_streak }}</p>{% endblock %}
+{% block header %}Spelling Bee{% endblock %}
+{% block content %}
+        <div id="container">
+            <div id="gameBox_SpellingBee">
+                <section>
+                    <input id="userInput_SpellingBee" type="text" maxlength="19" placeholder="Type or click"/>
+                    <div id="hive">
+                        <div class="first_row">
+                            <div class="hexagon_outer" data-idx="1">
+                                <p class="hive_letter"></p>
+                            </div>
+                            <div class="hexagon_outer" data-idx="2">
+                                <p class="hive_letter"></p>
+                            </div>
+                        </div>
+                        <div class="second_row">
+                            <div class="hexagon_outer" data-idx="3">
+                                <p class="hive_letter"></p>
+                            </div>
+                            <div class="hexagon_center" data-idx="0">
+                                <p class="hive_letter"></p>
+                            </div>
+                            <div class="hexagon_outer" data-idx="4">
+                                <p class="hive_letter"></p>
+                            </div>
+                        </div>
+                        <div class="first_row">
+                            <div class="hexagon_outer" data-idx="5">
+                                <p class="hive_letter"></p>
+                            </div>
+                            <div class="hexagon_outer" data-idx="6">
+                                <p class="hive_letter"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="controls">
+                        <button class="control_button">Delete</button>
+
+                        <!--------------------- SHUFFLES OUTER CELL LETTERS - TO ADD FUNCTION IN JS ---------------------->
+                        <button class="control_button"><span class="material-symbols-outlined">refresh</span></button>
+
+                        <button class="control_button">Enter</button>
+                    </div>
+                    <div id="displayTier">
+                        <h3 id="tierText">Tier:</h3>
+                        <h3 id="tier">Beginner</h3>
+                    </div>
+                    <div id="displayScore">
+                        <h3 id="scoreText">Score:</h3>
+                        <h3 id="score">0</h3>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 id="error-msg"></h2>
+
+                    <div id="guesses">
+                        <h2 id="foundWordsTitle"></h2>
+                        <ul id="guessesList">
+                        </ul>
+                    </div>
+                </section>
+
+                <div id="queenBeePopup" class="popup_hidden">
+                    <div class="popup_content">
+                        <p>YOU GOT</p>
+                        <p>🐝 QUEEN BEE 🐝</p>
+                    </div>
+                </div>
+
+                <div id="pangramPopup">
+                    <div class="popup_content pangram_content">
+                        <p>✨ PANGRAM ✨</p>
+                        <span>+7 bonus points!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

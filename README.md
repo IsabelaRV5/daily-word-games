@@ -2,9 +2,19 @@
 
 A Dawson College team project that brings Wordle and Spelling Bee into one web app. Players can try daily puzzles as guests or sign in to track streaks and review past games.
 
-## Isabela’s contributions
+## Contributions
 
-Isabela co-developed the app in a three-person team. She implemented Flask routes for reading and updating game data, including streaks and game history. She created the PostgreSQL tables and managed database connections.
+**Isabela Resende Vasconcelos**
+- Implemented backend CRUD operations through Flask GET and POST routes to manage game data, including user and guest streaks and game history.
+- Managed PostgreSQL database connections and created database tables.
+
+**Jiha Poitevin**
+- Implemented Spelling Bee game functionality using JavaScript and styled its game page.
+- Developed Python classes to structure application logic and containerized the application using Docker for deployment.
+
+**Xena Tat**
+- Implemented Wordle game functionality using JavaScript and contributed to admin user management.
+- Designed and implemented the website's overall styling and visual layout.
 
 ## Stack
 

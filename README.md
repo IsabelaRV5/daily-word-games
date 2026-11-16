@@ -73,5 +73,5 @@ Sign in as that user and open **History** to see a completed Wordle from the pre
 ## Authors
 
 - Isabela Resende Vasconcelos
-- Xena Tat
 - Jiha Poitevin
+- Xena Tat
